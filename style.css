@@ -84,6 +84,7 @@ p { margin: 0 0 14px; }
 .projects .links a { text-decoration: none; border-bottom: 2px solid var(--rule); color: var(--ink); }
 .projects .links a:hover { border-color: var(--ink); }
 .projects .links a.r { color: var(--red); }
+.projects b k { color: var(--red); }
 .pic { margin: 0 -16px 14px; background: #f4f5f6; }
 
 /* contribution graph: github's grid, the hub's colours, square cells */

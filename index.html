@@ -60,14 +60,18 @@
   ).join("");
 
   $("projects").innerHTML = C.projects.map((p) => {
-    const r = G.repos[p.repo] || {};
-    const url = r.url || `https://github.com/hughminhphan/${p.repo}`;
-    const meta = [r.stars ? `★ ${r.stars}` : "", r.lang ? r.lang.toLowerCase() : "", r.pushed ? r.pushed.slice(0, 4) : ""].filter(Boolean).join(" · ");
+    const r = (p.repo && G.repos[p.repo]) || {};
+    const url = p.repo ? r.url || `https://github.com/hughminhphan/${p.repo}` : null;
+    const meta = p.meta || [r.stars ? `★ ${r.stars}` : "", r.lang ? r.lang.toLowerCase() : "", r.pushed ? r.pushed.slice(0, 4) : ""].filter(Boolean).join(" · ");
     const pic = p.video
       ? `<div class="pic"><video src="${p.video.src}" poster="${p.video.poster}" width="${p.video.w}" height="${p.video.h}" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video></div>`
       : "";
-    const links = `<a href="${url}">github</a>${p.live ? ` <a class="r" href="${p.live}">try it</a>` : ""}`;
-    return `<li>${pic}<b>${esc(p.title)}</b><span>${esc(p.line)}</span><span class="meta">${meta}<span class="links">${links}</span></span></li>`;
+    const links = [
+      p.watch ? `<a class="r" href="${p.watch}">watch the pitch</a>` : "",
+      url ? `<a href="${url}">github</a>` : "",
+      p.live ? `<a class="r" href="${p.live}">try it</a>` : "",
+    ].filter(Boolean).join(" ");
+    return `<li>${pic}<b>${esc(p.title)}${p.badge ? ` <k>${esc(p.badge)}</k>` : ""}</b><span>${esc(p.line)}</span><span class="meta">${meta}<span class="links">${links}</span></span></li>`;
   }).join("");
 
   const Y = C.yoyo;

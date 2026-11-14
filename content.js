@@ -30,6 +30,15 @@ window.CONTENT = {
 
   projects: [
     {
+      // repo is private (actuate-fast-loop-archive); clip is 0:05 to 0:13 of the stage pitch (youtube mbkhId7g6-c)
+      title: "fastloop",
+      badge: "1st place",
+      line: "1st place at nvidia's physical ai hackathon in sf, with nebius, antioch and toloka. a control plane for robot learning: every robot attempt becomes a versioned, scored experiment that produces the next one.",
+      video: { src: "assets/fastloop.mp4", poster: "assets/fastloop.jpg", w: 1104, h: 690 },
+      meta: "team spongebob · aug 2026",
+      watch: "https://www.youtube.com/watch?v=mbkhId7g6-c",
+    },
+    {
       repo: "schemagic-sim",
       title: "robonyx simulator",
       line: "real ngspice running in your browser. drag a pot and the led, the wires and the scope all answer live. no account, works offline.",
