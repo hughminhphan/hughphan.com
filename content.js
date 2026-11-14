@@ -11,7 +11,8 @@ window.CONTENT = {
     { label: "youtube", href: "https://www.youtube.com/channel/UC-yp6ASzzUN6uYCTRFbL9HQ" },
   ],
 
-  // off the clock. clip is 0:48 to 0:58 of "2 years yoyoing" (youtube 7bmZS_2kfas), muted loop
+  // off the clock. clip is 0:48 to 0:58 of "2 years yoyoing" (youtube 7bmZS_2kfas), muted loop,
+  // with laser eyes drawn on per frame from apple vision body-pose eye tracking
   yoyo: {
     video: { src: "assets/yoyo.mp4", poster: "assets/yoyo.jpg", w: 1280, h: 720 },
     line: "i also yoyo. 1a, the string trick division. 6th at the sydney regional in 2024, 24th amateur at scales international in 2020.",

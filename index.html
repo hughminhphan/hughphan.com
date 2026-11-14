@@ -71,7 +71,7 @@
   }).join("");
 
   const Y = C.yoyo;
-  $("yoyo").innerHTML = `<div class="pic"><video src="${Y.video.src}" poster="${Y.video.poster}" width="${Y.video.w}" height="${Y.video.h}" muted loop playsinline autoplay preload="metadata" aria-label="hugh doing yo-yo string tricks"></video></div>
+  $("yoyo").innerHTML = `<div class="pic"><video src="${Y.video.src}" poster="${Y.video.poster}" width="${Y.video.w}" height="${Y.video.h}" muted loop playsinline autoplay preload="metadata" aria-label="hugh doing yo-yo string tricks, with laser eyes"></video></div>
     <p class="lede">${esc(Y.line)}</p>
     <ul class="socials">${Y.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join("")}</ul>`;
 
