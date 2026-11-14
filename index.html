@@ -24,6 +24,9 @@
 <h2>projects</h2>
 <ul class="projects" id="projects"></ul>
 
+<h2>yo-yo</h2>
+<div class="yoyo" id="yoyo"></div>
+
 <h2>on github</h2>
 <div class="graph-scroll" id="graph-scroll"><div class="graph" id="graph"></div></div>
 <p class="cap" id="graph-cap"></p>
@@ -66,6 +69,11 @@
     const links = `<a href="${url}">github</a>${p.live ? ` <a class="r" href="${p.live}">try it</a>` : ""}`;
     return `<li>${pic}<b>${esc(p.title)}</b><span>${esc(p.line)}</span><span class="meta">${meta}<span class="links">${links}</span></span></li>`;
   }).join("");
+
+  const Y = C.yoyo;
+  $("yoyo").innerHTML = `<div class="pic"><video src="${Y.video.src}" poster="${Y.video.poster}" width="${Y.video.w}" height="${Y.video.h}" muted loop playsinline autoplay preload="metadata" aria-label="hugh doing yo-yo string tricks"></video></div>
+    <p class="lede">${esc(Y.line)}</p>
+    <ul class="socials">${Y.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join("")}</ul>`;
 
   // contribution graph, github's layout in the hub's colours
   const days = G.contributions.days;

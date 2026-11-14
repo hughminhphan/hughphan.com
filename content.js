@@ -8,7 +8,18 @@ window.CONTENT = {
     { label: "x", href: "https://x.com/hughphan_" },
     { label: "linkedin", href: "https://www.linkedin.com/in/hugh-phan-b58b85236/" },
     { label: "github", href: "https://github.com/hughminhphan" },
+    { label: "youtube", href: "https://www.youtube.com/channel/UC-yp6ASzzUN6uYCTRFbL9HQ" },
   ],
+
+  // off the clock. clip is 0:48 to 0:58 of "2 years yoyoing" (youtube 7bmZS_2kfas), muted loop
+  yoyo: {
+    video: { src: "assets/yoyo.mp4", poster: "assets/yoyo.jpg", w: 1280, h: 720 },
+    line: "i also yoyo. 1a, the string trick division. 6th at the sydney regional in 2024, 24th amateur at scales international in 2020.",
+    links: [
+      { label: "2 years yoyoing", href: "https://www.youtube.com/watch?v=7bmZS_2kfas" },
+      { label: "sydney regional run", href: "https://www.youtube.com/watch?v=oXslMd_ie48" },
+    ],
+  },
 
   // free skills: link into the gated hub pages so a portfolio visit joins the same email funnel
   skills: [
