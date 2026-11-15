@@ -55,6 +55,26 @@ window.CONTENT = {
       watch: "https://www.youtube.com/watch?v=mbkhId7g6-c",
     },
     {
+      // clip is 0:07 to 0:15 of "1st Place NSW RoboCup Soccer Open Highlights" (youtube 6FmKRe5V6r8)
+      title: "robocup soccer robots",
+      badge: "1st nsw",
+      line: "robocup junior soccer open, the top division. 1st in nsw in 2023 and 2024, 2nd at nationals and 2nd at asia-pacific in 2023.",
+      video: { src: "assets/robocup.mp4", poster: "assets/robocup.jpg", w: 1280, h: 720 },
+      meta: "fort street high · 2022-24",
+      watch: "https://www.youtube.com/watch?v=6FmKRe5V6r8",
+      watchLabel: "watch the highlights",
+    },
+    {
+      // clip is 1:25.5 to 1:33.5 (semifinal vs tpa tubtimsiam) of the korea video (youtube CMPyQzUTdtk)
+      title: "robocup asia-pacific, korea",
+      badge: "2nd",
+      line: "team silverback took fort street to the asia-pacific soccer open in south korea. won the semifinal, came 2nd overall.",
+      video: { src: "assets/robocup-korea.mp4", poster: "assets/robocup-korea.jpg", w: 1280, h: 720 },
+      meta: "dec 2023",
+      watch: "https://www.youtube.com/watch?v=CMPyQzUTdtk",
+      watchLabel: "watch the trip",
+    },
+    {
       repo: "schemagic-sim",
       title: "robonyx simulator",
       line: "real ngspice running in your browser. drag a pot and the led, the wires and the scope all answer live. no account, works offline.",

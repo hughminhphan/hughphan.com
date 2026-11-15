@@ -74,7 +74,7 @@
       ? `<div class="pic"><video src="${p.video.src}" poster="${p.video.poster}" width="${p.video.w}" height="${p.video.h}" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video></div>`
       : "";
     const links = [
-      p.watch ? `<a class="r" href="${p.watch}">watch the pitch</a>` : "",
+      p.watch ? `<a class="r" href="${p.watch}">${esc(p.watchLabel || "watch the pitch")}</a>` : "",
       url ? `<a href="${url}">github</a>` : "",
       p.live ? `<a class="r" href="${p.live}">try it</a>` : "",
     ].filter(Boolean).join(" ");
@@ -101,6 +101,92 @@
   $("graph-scroll").scrollLeft = 1e6;
   $("graph-cap").innerHTML = `<span class="r">${G.contributions.total.toLocaleString("en-AU")} contributions</span> in the last year. ${G.stars} stars across ${G.publicRepos} public repos.`;
   $("updated").textContent = `github numbers as of ${dateFmt(G.updated)}.`;
+})();
+
+// laser eyes: beams from the pupils in the photo to the pointer (finger on touch).
+// lasers cut on and off; only the flicker moves on its own.
+(() => {
+  const img = document.getElementById("me");
+  const EYES = [[0.4026, 0.2959], [0.5352, 0.2858]]; // pupils, found with apple vision on assets/hugh.jpg
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cv = document.createElement("canvas");
+  cv.className = "lasers";
+  cv.setAttribute("aria-hidden", "true");
+  document.body.appendChild(cv);
+  const ctx = cv.getContext("2d");
+  let ptr = null, raf = 0, dpr = 1;
+
+  const size = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(innerWidth * dpr);
+    cv.height = Math.round(innerHeight * dpr);
+    cv.style.width = innerWidth + "px";
+    cv.style.height = innerHeight + "px";
+    request();
+  };
+
+  function flare(x, y, r) {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, "rgba(255,255,255,1)");
+    g.addColorStop(0.2, "rgba(255,110,100,0.95)");
+    g.addColorStop(0.5, "rgba(225,6,0,0.45)");
+    g.addColorStop(1, "rgba(225,6,0,0)");
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    // anamorphic streak
+    ctx.save(); ctx.translate(x, y); ctx.scale(4.5, 0.22);
+    ctx.beginPath(); ctx.arc(0, 0, r * 0.9, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+
+  function beam(x0, y0, x1, y1, s, f) {
+    const layers = [
+      [11 * s * f, "rgba(225,6,0,0.28)", 22],
+      [4.5 * s * f, "rgba(232,20,8,0.9)", 10],
+      [1.6 * s * f, "rgba(255,240,236,1)", 0],
+    ];
+    ctx.lineCap = "round";
+    for (const [w, c, blur] of layers) {
+      ctx.shadowColor = "rgba(225,6,0,0.9)";
+      ctx.shadowBlur = blur;
+      ctx.strokeStyle = c;
+      ctx.lineWidth = w;
+      ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+    }
+    ctx.shadowBlur = 0;
+  }
+
+  function draw() {
+    raf = 0;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    if (!ptr) return;
+    const r = img.getBoundingClientRect();
+    if (r.bottom < 0 || !r.width) return;
+    const s = r.width / 148;
+    const f = reduce ? 1 : 0.85 + Math.random() * 0.3;
+    const eyes = EYES.map(([ex, ey]) => [r.left + ex * r.width, r.top + ey * r.height]);
+    for (const [x, y] of eyes) beam(x, y, ptr[0], ptr[1], s, f);
+    // burn spot where they meet
+    flare(ptr[0], ptr[1], 16 * s * f);
+    for (const [x, y] of eyes) flare(x, y, 13 * s * f);
+    if (!reduce) request(); // keep flickering while the lasers are on
+  }
+
+  function request() { if (!raf) raf = requestAnimationFrame(draw); }
+  const on = (e) => { ptr = [e.clientX, e.clientY]; request(); };
+  const off = () => { ptr = null; request(); };
+
+  addEventListener("pointermove", (e) => { if (e.pointerType === "mouse" || e.buttons) on(e); }, { passive: true });
+  addEventListener("pointerdown", on, { passive: true });
+  addEventListener("pointerup", (e) => { if (e.pointerType !== "mouse") off(); }, { passive: true });
+  addEventListener("pointercancel", off, { passive: true });
+  document.addEventListener("pointerleave", off);
+  document.documentElement.addEventListener("mouseleave", off);
+  addEventListener("blur", off);
+  addEventListener("scroll", request, { passive: true });
+  addEventListener("resize", size);
+  size();
 })();
 </script>
 </body>
