@@ -55,7 +55,8 @@ window.CONTENT = {
       watch: "https://www.youtube.com/watch?v=mbkhId7g6-c",
     },
     {
-      // clip is 0:07 to 0:15 of "1st Place NSW RoboCup Soccer Open Highlights" (youtube 6FmKRe5V6r8)
+      // 9s hard-cut montage of "1st Place NSW RoboCup Soccer Open Highlights" (youtube 6FmKRe5V6r8):
+      // 0:00, 0:05, 0:09, 0:16, 0:26, 0:29, 0:38.5 (~1.3s each)
       title: "robocup soccer robots",
       badge: "1st nsw",
       line: "robocup junior soccer open, the top division. 1st in nsw in 2023 and 2024, 2nd at nationals and 2nd at asia-pacific in 2023.",
@@ -65,7 +66,8 @@ window.CONTENT = {
       watchLabel: "watch the highlights",
     },
     {
-      // clip is 1:25.5 to 1:33.5 (semifinal vs tpa tubtimsiam) of the korea video (youtube CMPyQzUTdtk)
+      // 10s hard-cut montage of the korea video (youtube CMPyQzUTdtk): 1:37, 0:46.6, 2:23, 2:42, 2:20, 2:45,
+      // 2:09 "won semis", 3:15 "we got 2nd" flag
       title: "robocup asia-pacific, korea",
       badge: "2nd",
       line: "team silverback took fort street to the asia-pacific soccer open in south korea. won the semifinal, came 2nd overall.",
