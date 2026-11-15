@@ -22,6 +22,22 @@ window.CONTENT = {
     ],
   },
 
+  photo: "assets/hugh.jpg", // linkedin profile photo
+
+  // from hugh's linkedin (honors, experience, education), 2026-11-15. his words, lowercased.
+  wins: [
+    { what: "1st place, nvidia physical ai hackathon", detail: "san francisco, with nebius, antioch and toloka", when: "2026" },
+    { what: "alloy: 0 to 10k followers in a month", detail: "growth engineer. next goal 10k to 100k in 6 months", when: "2026" },
+    { what: "lyra: 34 to 65 engineers", detail: "head of growth. content, job ads, internal tooling", when: "2026" },
+    { what: "schemagic, acquired by trace", detail: "datasheet pdfs to kicad parts. 10k followers, 600 downloads, paying users", when: "" },
+    { what: "robonyx: 900k+ followers", detail: "a robotics account i started. 300k instagram, 250k youtube, 200k facebook, 150k tiktok", when: "2023-25" },
+    { what: "1st robocup nsw, twice", detail: "soccer open, the top division", when: "2023, 2024" },
+    { what: "2nd robocup asia-pacific", detail: "soccer open", when: "2023" },
+    { what: "2nd robocup australia", detail: "soccer open", when: "2023" },
+    { what: "2nd of 200 teams, business blueprint", detail: "western sydney uni. pitched my robotics education startup", when: "2023" },
+    { what: "hsc shape exhibition", detail: "top 10 projects in nsw. john singleton & michael kirby prize for originality. atar 96.65", when: "2025" },
+  ],
+
   // free skills: link into the gated hub pages so a portfolio visit joins the same email funnel
   skills: [
     { title: "motion kit", line: "claude animates like an after effects animator", img: "assets/motion-thumb.jpg", href: "https://hughcandoit.pages.dev/motion?from=hughphan" },

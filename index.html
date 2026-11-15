@@ -14,9 +14,12 @@
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feMorphology in="SourceGraphic" operator="dilate" radius=".6" result="d"/><feGaussianBlur in="d" stdDeviation="1.3" result="b"/><feComponentTransfer in="b" result="t"><feFuncA type="linear" slope="3.2" intercept="-1.0"/></feComponentTransfer><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="t" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <main class="wrap">
-<h1>hugh <k>phan</k></h1>
+<header class="top"><img class="me" id="me" alt="hugh phan" width="480" height="480"><h1>hugh <k>phan</k></h1></header>
 <p class="lede" id="lede"></p>
 <ul class="socials" id="socials-top"></ul>
+
+<h2>wins</h2>
+<ul class="wins" id="wins"></ul>
 
 <h2>free skills</h2>
 <ul class="skills" id="skills"></ul>
@@ -50,6 +53,10 @@
   const dateFmt = (s) => { const d = new Date(s + "T00:00:00"); return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`; };
 
   $("lede").textContent = C.lede;
+  $("me").src = C.photo;
+  $("wins").innerHTML = C.wins.map((w) =>
+    `<li><div><b>${esc(w.what)}</b><span>${esc(w.detail)}</span></div><i>${esc(w.when)}</i></li>`
+  ).join("");
   const socials = C.socials.map((s) => `<li><a href="${s.href}">${s.label}</a></li>`).join("");
   $("socials-top").innerHTML = socials;
   $("socials").innerHTML = socials;

@@ -24,8 +24,20 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .wrap { max-width: 560px; margin: 0 auto; padding: 0 16px 64px; }
 
+/* photo beside the headline, bottoms aligned */
+.top { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: end; margin: 28px 0 16px; }
+.me { width: clamp(96px, 26vw, 148px); height: auto; aspect-ratio: 1; object-fit: cover; background: #eef0f2; }
+
+/* wins: the hub's list rhythm, year on the right */
+.wins { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.wins li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.wins b { display: block; font-size: 17px; letter-spacing: -.01em; color: var(--ink); line-height: 1.25; }
+.wins span { display: block; font-size: 14px; color: var(--muted); line-height: 1.3; margin-top: 2px; }
+.wins i { font-style: normal; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.wins li:first-child b { color: var(--red); }
+
 h1 {
-  margin: 28px 0 16px;
+  margin: 0;
   font-weight: 700;
   font-size: clamp(54px, 15vw, 96px);
   line-height: .84;
