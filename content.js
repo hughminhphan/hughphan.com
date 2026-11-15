@@ -24,6 +24,17 @@ window.CONTENT = {
 
   photo: "assets/hugh.jpg", // linkedin profile photo
 
+  // photos from hugh's photos library (and the korea video, 3:24), square crops in assets/win-*.jpg
+  trophies: {
+    hero: { src: "assets/win-nvidia.jpg", alt: "hugh on stage holding the 1st place top winner check at nvidia's physical ai sprint", cap: "1st place, nvidia physical ai hackathon. san francisco, aug 2026" },
+    grid: [
+      { src: "assets/win-nsw-2024.jpg", alt: "hugh holding the gold robocup nsw trophy", cap: "1st, robocup nsw 2024" },
+      { src: "assets/win-nsw-2023.jpg", alt: "the fort street team in medals behind the trophy and their two robots", cap: "1st, robocup nsw 2023" },
+      { src: "assets/win-nationals-2023.jpg", alt: "the team in medals in front of the robocup junior australia banners", cap: "2nd, robocup australia 2023" },
+      { src: "assets/win-korea-2023.jpg", alt: "team silverback holding the australian flag behind their robots in korea", cap: "2nd, robocup asia-pacific 2023" },
+    ],
+  },
+
   // from hugh's linkedin (honors, experience, education), 2026-11-15. his words, lowercased.
   wins: [
     { what: "1st place, nvidia physical ai hackathon", detail: "san francisco, with nebius, antioch and toloka", when: "2026" },

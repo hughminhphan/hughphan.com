@@ -19,6 +19,7 @@
 <ul class="socials" id="socials-top"></ul>
 
 <h2>wins</h2>
+<div class="trophies" id="trophies"></div>
 <ul class="wins" id="wins"></ul>
 
 <h2>free skills</h2>
@@ -54,6 +55,8 @@
 
   $("lede").textContent = C.lede;
   $("me").src = C.photo;
+  const fig = (t, cls) => `<figure class="${cls}"><img src="${t.src}" alt="${esc(t.alt)}" loading="lazy"><figcaption>${esc(t.cap)}</figcaption></figure>`;
+  $("trophies").innerHTML = fig(C.trophies.hero, "hero") + `<div class="grid">${C.trophies.grid.map((t) => fig(t, "")).join("")}</div>`;
   $("wins").innerHTML = C.wins.map((w) =>
     `<li><div><b>${esc(w.what)}</b><span>${esc(w.detail)}</span></div><i>${esc(w.when)}</i></li>`
   ).join("");
