@@ -66,6 +66,17 @@ window.CONTENT = {
       watch: "https://www.youtube.com/watch?v=mbkhId7g6-c",
     },
     {
+      // company repo (alloyrobotics/alloy-logger-arduino), so github + meta are set by hand.
+      // clip is 0:00.4 to 0:09.4 of the launch video's data-rainbow scene (r2 launches/alloy-logger/renders/data-rainbow_master.mp4)
+      title: "alloylogger",
+      line: "a black-box recorder for esp32 robots. one library logs the whole control loop and streams it straight to alloy, so claude or chatgpt can tell you what went wrong. no sd card, no laptop. i built it and its launch video.",
+      video: { src: "assets/alloylogger.mp4", poster: "assets/alloylogger.jpg", w: 1280, h: 720 },
+      meta: "alloy robotics · jul 2026",
+      github: "https://github.com/alloyrobotics/alloy-logger-arduino",
+      watch: "https://www.instagram.com/reel/Dab5vHvzLS3/",
+      watchLabel: "watch the launch",
+    },
+    {
       // 9s hard-cut montage of "1st Place NSW RoboCup Soccer Open Highlights" (youtube 6FmKRe5V6r8):
       // 0:00, 0:05, 0:09, 0:16, 0:26, 0:29, 0:38.5 (~1.3s each)
       title: "robocup soccer robots",
